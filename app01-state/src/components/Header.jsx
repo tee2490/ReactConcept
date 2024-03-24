@@ -5,6 +5,7 @@ export default function Header() {
   return (
     <nav>
         <img src={logo} className='mb-4'/>
+        <a href='/'>Home page</a>
     </nav>
   )
 }
