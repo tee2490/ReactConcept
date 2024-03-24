@@ -1,11 +1,12 @@
-import React from 'react'
-import logo from '../image/logo.png'
+import React from "react";
+import logo from "../image/logo.png";
+import "./Header.css";
 
 export default function Header() {
   return (
     <nav>
-        <img src={logo} className='mb-4'/>
-        <a href='/'>Home page</a>
+      <img src={logo} className="logo" />
+      <a href="/">Home page</a>
     </nav>
-  )
+  );
 }
