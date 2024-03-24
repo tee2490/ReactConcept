@@ -1,7 +1,10 @@
 import React from 'react'
+import logo from '../image/logo.png'
 
 export default function Header() {
   return (
-    <h1>Header</h1>
+    <nav>
+        <img src={logo} className='mb-4'/>
+    </nav>
   )
 }
