@@ -18,7 +18,9 @@ export default function Studentlist() {
     <div>
       <ul>
         <div className="header">
-          <h3>All students : {student.length} </h3>
+          <h3 style={{ backgroundColor: "bisque", fontStyle: "italic" }}>
+            All students : {student.length}{" "}
+          </h3>
           <button onClick={() => setShow(!show)}>
             {show ? "ซ่อน" : "แสดง"}
           </button>
