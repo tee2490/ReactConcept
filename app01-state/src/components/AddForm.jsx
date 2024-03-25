@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./AddForm.css";
 
-export default function AddForm() {
+export default function AddForm(props) {
+  const { student, setStudent } = props;
   const [name, setName] = useState("");
 
   function saveStudent(e) {
@@ -13,7 +14,8 @@ export default function AddForm() {
         id: Math.floor(Math.random() * 1000),
         name: name,
       };
-      console.log(newStudent);
+      setStudent([...student,newStudent])
+      setName("")
     }
   }
 

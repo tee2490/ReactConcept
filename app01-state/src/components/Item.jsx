@@ -6,12 +6,10 @@ export default function Item(props) {
   return (
     <>
       <li>
-        <p>
-          {item.id} {item.name}
-          <button className="delete" onClick={() => deleteStudent(item.id)}>
-            Delete
-          </button>
-        </p>
+        {item.id} {item.name}
+        <button className="delete" onClick={() => deleteStudent(item.id)}>
+          Delete
+        </button>
       </li>
     </>
   );

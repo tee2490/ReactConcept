@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Studentlist from "./components/Studentlist";
-import './App.css'
+import "./App.css";
 import AddForm from "./components/AddForm";
 
 export default function App() {
@@ -19,9 +19,9 @@ export default function App() {
     <div className="container">
       <Header title="Student list" />
       <main>
-        <AddForm/>
+        <AddForm student={student} setStudent={setStudent} />
         <Studentlist student={student} deleteStudent={deleteStudent} />
       </main>
-     </div>
+    </div>
   );
 }
