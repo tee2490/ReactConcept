@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Studentlist.css";
+import Item from "./Item";
 
 export default function Studentlist() {
   const [student, setStudent] = useState([
@@ -18,8 +19,8 @@ export default function Studentlist() {
     <div>
       <ul>
         <div className="header">
-          <h3 style={{ backgroundColor: "bisque", fontStyle: "italic" }}>
-            All students : {student.length}{" "}
+          <h3>
+            All students : {student.length}
           </h3>
           <button onClick={() => setShow(!show)}>
             {show ? "ซ่อน" : "แสดง"}
@@ -27,17 +28,7 @@ export default function Studentlist() {
         </div>
         {show &&
           student.map((item) => (
-            <li key={item.id}>
-              <p>
-                {item.id} {item.name}{" "}
-                <button
-                  className="delete"
-                  onClick={() => deleteStudent(item.id)}
-                >
-                  Delete
-                </button>
-              </p>
-            </li>
+            <Item key={item.id} item={item} deleteStudent={deleteStudent} />
           ))}
       </ul>
     </div>
