@@ -2,8 +2,7 @@ import React from "react";
 import logo from "../image/logo.png";
 import "./Header.css";
 
-export default function Header(props) {
-  const {title} = props
+export default function Header({title}) {
   return (
     <nav>
       <img src={logo} className="logo" />
