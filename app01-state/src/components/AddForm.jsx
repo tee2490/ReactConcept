@@ -3,9 +3,23 @@ import "./AddForm.css";
 
 export default function AddForm() {
   const [name, setName] = useState("");
+
+  function saveStudent(e) {
+    e.preventDefault();
+    if (!name) {
+      alert("กรุณาป้อนข้อมูลด้วยครับ");
+    } else {
+      const newStudent = {
+        id: Math.floor(Math.random() * 1000),
+        name: name,
+      };
+      console.log(newStudent);
+    }
+  }
+
   return (
     <section className="container">
-      <form>
+      <form onSubmit={saveStudent}>
         <label>name</label>
         <input
           type="text"
