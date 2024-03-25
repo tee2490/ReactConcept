@@ -12,7 +12,7 @@ export default function Studentlist(props) {
         <div className="header">
           <h3>All students : {student.length}</h3>
           <button onClick={() => setShow(!show)}>
-            {show ? "ซ่อน" : "แสดง"}
+            {show ? "hidden" : "show"}
           </button>
         </div>
         {show &&
