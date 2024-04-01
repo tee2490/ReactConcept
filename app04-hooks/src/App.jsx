@@ -4,7 +4,7 @@ import ProductList from "./components/ProductList";
 
 export default function App() {
   return (
-    <div>
+    <div className="App">
       <h1>Product List</h1>
       <ProductList />
     </div>
