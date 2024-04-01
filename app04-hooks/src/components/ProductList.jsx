@@ -1,9 +1,9 @@
 import React, {  useState } from "react";
-import { useFetch } from "../้hooks/useFerch";
+import { useFetch } from "../hooks/useFerch";
 
 export default function ProductList() {
    const [url, setUrl] = useState("http://localhost:8000/products");
-   const { data: products } = useFetch(url);
+   const { data: products, loading } = useFetch(url);
 
   return (
     <section>
@@ -17,6 +17,7 @@ export default function ProductList() {
           In Stock Only
         </button>
       </div>
+      { loading && <p>Loading products...</p>}
 
        {products && products.map((product) => (
         <div className="card" key={product.id}>
