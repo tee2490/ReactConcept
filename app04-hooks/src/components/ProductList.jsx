@@ -2,24 +2,44 @@ import React, { useEffect, useState } from "react";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
-  console.log(products);
+  const [url, setUrl] = useState("http://localhost:8000/products");
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:8000/products")
+    fetch(url)
       .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+      .then((data) =>{ 
+        setProducts(data)
+        console.log(products)
+    });
+  }, [url]);
+
+  useEffect(() => {
+    console.log(counter);
+  }, [counter]);
 
   return (
     <section>
+      <div className="filter">
+        <button onClick={() => setCounter(counter + 1)}>{counter}</button>
+        <button onClick={() => setUrl("http://localhost:8000/products")}>
+          All
+        </button>
+        <button
+          onClick={() => setUrl("http://localhost:8000/products?in_stock=true")}
+        >
+          In Stock Only
+        </button>
+      </div>
+
       {products.map((product) => (
         <div className="card" key={product.id}>
           <p className="id">{product.id}</p>
           <p className="name">{product.name}</p>
           <p className="info">
             <span>${product.price}</span>
-            <span className={product.in_stock ? "instock" : "unavailable"}>
-              {product.in_stock ? "In Stock" : "Unavailable"}
+            <span className={product.in_stock=="true" ? "instock" : "unavailable"}>
+              {product.in_stock=="true" ? "In Stock" : "Unavailable"}
             </span>
           </p>
         </div>
