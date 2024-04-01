@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [url, setUrl] = useState("http://localhost:8000/products");
-  const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) =>{ 
-        setProducts(data)
-        console.log(products)
-    });
+  const fetchProducts = useCallback(async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    setProducts(data);
   }, [url]);
 
   useEffect(() => {
-    console.log(counter);
-  }, [counter]);
+    fetchProducts();
+    console.log("-");
+  }, [fetchProducts]);
 
   return (
     <section>
       <div className="filter">
-        <button onClick={() => setCounter(counter + 1)}>{counter}</button>
         <button onClick={() => setUrl("http://localhost:8000/products")}>
           All
         </button>
@@ -38,8 +34,10 @@ export default function ProductList() {
           <p className="name">{product.name}</p>
           <p className="info">
             <span>${product.price}</span>
-            <span className={product.in_stock=="true" ? "instock" : "unavailable"}>
-              {product.in_stock=="true" ? "In Stock" : "Unavailable"}
+            <span
+              className={product.in_stock == "true" ? "instock" : "unavailable"}
+            >
+              {product.in_stock == "true" ? "In Stock" : "Unavailable"}
             </span>
           </p>
         </div>
