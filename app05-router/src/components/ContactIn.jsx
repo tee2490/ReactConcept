@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ContactIn() {
+export  function ContactIn() {
   return (
     <div>ContactIn</div>
   )

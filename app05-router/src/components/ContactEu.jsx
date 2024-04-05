@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ContactEu() {
+export  function ContactEu() {
   return (
     <div>ContactEu</div>
   )

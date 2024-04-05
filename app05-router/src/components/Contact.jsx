@@ -1,6 +1,6 @@
 import { useNavigate,Outlet } from "react-router-dom";
 
-export default function Contact() {
+export  function Contact() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
