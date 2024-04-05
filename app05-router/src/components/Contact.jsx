@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Outlet } from "react-router-dom";
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -11,6 +11,7 @@ export default function Contact() {
   return (
     <>
       <div>Contact</div>
+      <Outlet />
       <button onClick={handleSubmit} className="btn btn-info">Submit Form</button>
     </>
   )
