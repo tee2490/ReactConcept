@@ -5,6 +5,7 @@ import ProductDetail from "./components/ProductDetail";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
 import Admin from "./components/Admin"
+import PageNotFound from "./components/PageNotFound"
 
 export default function App() {
   const user = true;
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="products/:id" element={<ProductDetail />} />
         <Route path="contact" element={<Contact />}></Route>
         <Route path="/admin" element={ user ? <Admin /> : <Navigate to="/" />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       </div>
     </div>
