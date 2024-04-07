@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer,useEffect } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { products } from "../data/product";
 import { cartReducer } from "../reducer/cartReducer";
 
@@ -12,23 +12,26 @@ const initState = {
 };
 
 export const CartProvider = ({ children }) => {
-
   //ส่งค่าเข้าไปทำงานสองค่าคือ cartReducer และ initState
   //และ return ค่าที่จะนำไปใช้ต่อสองค่าคือ state และ dispatch
   const [state, dispatch] = useReducer(cartReducer, initState);
 
-  function formatMoney(money){
-    return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
+  function formatMoney(money) {
+    return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 
-useEffect(()=>{
-  console.log("คำนวณหาผลรวม")
-  dispatch({type:"CALCULATE_TOTAL"})
-},[state.products])
+  useEffect(() => {
+    console.log("คำนวณหาผลรวม");
+    dispatch({ type: "CALCULATE_TOTAL" });
+  }, [state.products]);
+
+  function removeItem(id) {
+    dispatch({ type: "REMOVE", payload: id });
+  }
 
   //กระจายข้อมูลที่จะนำไปใช้งานหรือแชร์ด้วย Context Provider ผ่านคุณสมบัติ value
   return (
-    <CartContext.Provider value={{ ...state,formatMoney }}>
+    <CartContext.Provider value={{ ...state, formatMoney, removeItem }}>
       {children} {/* คอมโพเนนต์ที่จะทำ value ไปใช้งาน */}
     </CartContext.Provider>
   );
