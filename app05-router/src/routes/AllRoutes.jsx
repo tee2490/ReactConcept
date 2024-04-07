@@ -11,7 +11,7 @@ import {
   PageNotFound,
 } from "../components";
 
-export const AllRoutes = ()=> {
+export const AllRoutes = () => {
   const user = true;
 
   return (
@@ -30,4 +30,4 @@ export const AllRoutes = ()=> {
       </Routes>
     </>
   );
-}
+};
