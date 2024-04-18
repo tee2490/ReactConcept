@@ -1,4 +1,4 @@
-import { DestinationIndex } from "./components";
+import { DestinationIndex, RandomDestination } from "./components";
 import { Header } from "./layout/Header";
 
 export default function App() {
@@ -6,6 +6,7 @@ export default function App() {
     <div className="m-2">
       <Header />
       <DestinationIndex/>
+      <RandomDestination/>
     </div>
   );
 }
