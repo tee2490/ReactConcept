@@ -13,10 +13,16 @@
       "daysNeeded": 5
     },
     {
-      "id": 84.84029129689507,
-      "city": "Test",
-      "country": "Test",
-      "daysNeeded": 5
+      "id": "21.599357914792485",
+      "city": "test1",
+      "country": "test1",
+      "daysNeeded": 3
+    },
+    {
+      "id": "85.48530770730129",
+      "city": "test2",
+      "country": "test2",
+      "daysNeeded": 10
     }
   ]
 }
